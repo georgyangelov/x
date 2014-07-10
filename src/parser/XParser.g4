@@ -6,11 +6,14 @@ tokens {
     String,
     ConstID,
     VarID,
+    MethodID,
+
     OpenParen,
     CloseParen,
     OpenBracket,
     CloseBracket,
     Colon,
+    Comma,
 
     KeywordEnd,
     KeywordIf,
@@ -20,11 +23,15 @@ tokens {
     KeywordTrue,
     KeywordFalse,
 
+    OperatorSend,
+
     OperatorPlus,
     OperatorMinus,
     OperatorMult,
     OperatorDiv
 }
+
+methodID: ConstID | VarID;
 
 program: expression (EndExpr expression)* EndExpr? EOF;
 
@@ -32,6 +39,7 @@ expression:
       OpenParen expression CloseParen
     | expression infixOperatorPrec1 expression
     | expression infixOperatorPrec2 expression
+    | expression OperatorSend methodID actualArgumentList
     | branchExpression
     | constExpression
     | varExpression;
@@ -51,3 +59,5 @@ varExpression:   ConstID | VarID;
 //       'if <cond>: <true_branch> else: <false_branch>'
 branchExpression:
     KeywordIf expression expressions (KeywordElsif expression expressions)* (KeywordElse expressions)? KeywordEnd;
+
+actualArgumentList: | expression (Comma EndExpr? expression)*;

@@ -17,6 +17,7 @@ OpenBracket:  '[';
 CloseBracket: ']';
 
 Colon: ':';
+Comma: ',';
 
 // Keywords
 KeywordEnd:   'end';
@@ -28,6 +29,8 @@ KeywordTrue:  'true';
 KeywordFalse: 'false';
 
 // Operators
+OperatorSend:  '.';
+
 OperatorPlus:  '+';
 OperatorMinus: '-';
 OperatorMult:  '*';
