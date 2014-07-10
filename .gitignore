@@ -1,0 +1,13 @@
+# Intellij
+.idea/
+*.iws
+
+# Mac
+.DS_Store
+
+# Maven
+log/
+target/
+
+# Antlr4 generated files
+gen/
