@@ -10,9 +10,9 @@ program: expression (EndExpr expression)* EndExpr? EOF;
 
 expression:
       OpenParen expression CloseParen                       # parentized
+    | expression OperatorSend methodID actualArgumentList?  # call
     | expression infixOperatorPrec1 expression              # infixPrec1
     | expression infixOperatorPrec2 expression              # infixPrec2
-    | expression OperatorSend methodID actualArgumentList   # call
     | branchExpression                                      # branch
     | constExpression                                       # constant
     | varExpression                                         # variable
@@ -34,4 +34,4 @@ varExpression:   ConstID | VarID;
 branchExpression:
     KeywordIf expression expressions (KeywordElsif expression expressions)* (KeywordElse expressions)? KeywordEnd;
 
-actualArgumentList: | expression (Comma EndExpr? expression)*;
+actualArgumentList: expression (Comma EndExpr? expression)*;
