@@ -37,5 +37,5 @@ OperatorMult:  '*';
 OperatorDiv:   '/';
 
 // TODO: Support unicode
-ConstID: [A-Z][a-zA-Z0-9_]*;
-VarID:   [a-z][a-zA-Z0-9_]*;
+ConstID: [A-Z][a-zA-Z0-9_?!]*;
+VarID:   [a-z][a-zA-Z0-9_?!]*;
