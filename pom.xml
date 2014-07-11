@@ -8,5 +8,25 @@
     <artifactId>x</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.antlr</groupId>
+                <artifactId>antlr4-maven-plugin</artifactId>
+                <version>4.2.2</version>
+                <configuration>
+                    <libDirectory>${basedir}/src/main/antlr4/net/gangelov/parser</libDirectory>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>antlr</id>
+                        <goals>
+                            <goal>antlr4</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>

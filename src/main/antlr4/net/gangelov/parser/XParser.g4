@@ -1,34 +1,7 @@
 parser grammar XParser;
 
-tokens {
-    EndExpr,
-    Integer,
-    String,
-    ConstID,
-    VarID,
-    MethodID,
-
-    OpenParen,
-    CloseParen,
-    OpenBracket,
-    CloseBracket,
-    Colon,
-    Comma,
-
-    KeywordEnd,
-    KeywordIf,
-    KeywordElse,
-    KeywordElsif,
-
-    KeywordTrue,
-    KeywordFalse,
-
-    OperatorSend,
-
-    OperatorPlus,
-    OperatorMinus,
-    OperatorMult,
-    OperatorDiv
+options {
+    tokenVocab=XLexer;
 }
 
 methodID: ConstID | VarID;
@@ -36,13 +9,14 @@ methodID: ConstID | VarID;
 program: expression (EndExpr expression)* EndExpr? EOF;
 
 expression:
-      OpenParen expression CloseParen
-    | expression infixOperatorPrec1 expression
-    | expression infixOperatorPrec2 expression
-    | expression OperatorSend methodID actualArgumentList
-    | branchExpression
-    | constExpression
-    | varExpression;
+      OpenParen expression CloseParen                       # parentized
+    | expression infixOperatorPrec1 expression              # infixPrec1
+    | expression infixOperatorPrec2 expression              # infixPrec2
+    | expression OperatorSend methodID actualArgumentList   # call
+    | branchExpression                                      # branch
+    | constExpression                                       # constant
+    | varExpression                                         # variable
+    ;
 
 expressions: EndExpr? expression (EndExpr expression)* EndExpr?;
 
