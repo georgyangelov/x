@@ -15,7 +15,7 @@ public class ParenthesizedExpressionTest {
     public void testParensPriority() throws Exception {
         XParserTest.testExpression(
                 "1 * (2 + 3)",
-                "(expression (expression (constExpression 1)) (infixOperatorPrec1 *) (expression ( (expression (constExpression 2)) (infixOperatorPrec2 +) (expression (constExpression 3)) ))"
+                "(expression (expression (constExpression 1)) (infixOperatorPrec1 *) (expression ( (expression (expression (constExpression 2)) (infixOperatorPrec2 +) (expression (constExpression 3))) )))"
         );
     }
 }
