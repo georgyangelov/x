@@ -20,13 +20,15 @@ Colon: ':';
 Comma: ',';
 
 // Keywords
-KeywordEnd:   'end';
-KeywordIf:    'if';
-KeywordElse:  'else';
-KeywordElsif: 'elsif';
+End:   'end';
+If:    'if';
+Else:  'else';
+Elsif: 'elsif';
+Class: 'class';
+Iface: 'interface';
 
-KeywordTrue:  'true';
-KeywordFalse: 'false';
+True:  'true';
+False: 'false';
 
 // Operators
 OperatorSend:  '.';

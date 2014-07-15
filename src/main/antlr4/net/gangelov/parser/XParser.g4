@@ -26,12 +26,12 @@ infixOperatorPrec1: OperatorMult | OperatorDiv;
 infixOperatorPrec2: OperatorPlus | OperatorMinus;
 
 // Expressions
-constExpression: Integer | String | KeywordTrue | KeywordFalse;
+constExpression: Integer | String | True | False;
 varExpression:   ConstID | VarID  | FullyQualifiedConstID;
 
 // TODO: Support single-line ifs
 //       'if <cond>: <true_branch> else: <false_branch>'
 branchExpression:
-    KeywordIf expression expressions (KeywordElsif expression expressions)* (KeywordElse expressions)? KeywordEnd;
+    If expression expressions (Elsif expression expressions)* (Else expressions)? End;
 
 actualArgumentList: expression (Comma EndExpr? expression)*;
