@@ -39,3 +39,5 @@ OperatorDiv:   '/';
 // TODO: Support unicode
 ConstID: [A-Z][a-zA-Z0-9_?!]*;
 VarID:   [a-z][a-zA-Z0-9_?!]*;
+
+FullyQualifiedConstID: ([a-zA-Z0-9_]+ '::')* ConstID;

@@ -27,7 +27,7 @@ infixOperatorPrec2: OperatorPlus | OperatorMinus;
 
 // Expressions
 constExpression: Integer | String | KeywordTrue | KeywordFalse;
-varExpression:   ConstID | VarID;
+varExpression:   ConstID | VarID  | FullyQualifiedConstID;
 
 // TODO: Support single-line ifs
 //       'if <cond>: <true_branch> else: <false_branch>'

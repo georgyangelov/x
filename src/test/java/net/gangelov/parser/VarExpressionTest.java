@@ -9,6 +9,11 @@ public class VarExpressionTest {
     }
 
     @Test
+    public void testFullyQualifiedConstantID() throws Exception {
+        XParserTest.testExpression("x::lang::Global", "(expression (varExpression x::lang::Global))");
+    }
+
+    @Test
     public void testVarID() throws Exception {
         XParserTest.testExpression("num", "(expression (varExpression num))");
     }
