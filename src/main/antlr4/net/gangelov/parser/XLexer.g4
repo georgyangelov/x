@@ -16,22 +16,37 @@ CloseParen: ')';
 OpenBracket:  '[';
 CloseBracket: ']';
 
+OpenBrace:  '{';
+CloseBrace: '}';
+
+GenericTypeSpecOpen:  '<';
+GenericTypeSpecClose: '>';
+
 Colon: ':';
 Comma: ',';
 
+FnTypeSeparator: '->';
+
 // Keywords
-End:   'end';
-If:    'if';
-Else:  'else';
-Elsif: 'elsif';
-Class: 'class';
-Iface: 'interface';
+End:     'end';
+If:      'if';
+Else:    'else';
+Elsif:   'elsif';
+Class:   'class';
+Iface:   'interface';
+Private: 'private';
+Public:  'public';
+Fn:      'fn';
+Def:     'def';
+New:     'new';
 
 True:  'true';
 False: 'false';
 
 // Operators
-OperatorSend:  '.';
+OperatorSend:   '.';
+OperatorRef:    '&';
+OperatorAssign: '=';
 
 OperatorPlus:  '+';
 OperatorMinus: '-';
@@ -39,7 +54,7 @@ OperatorMult:  '*';
 OperatorDiv:   '/';
 
 // TODO: Support unicode
-ConstID: [A-Z][a-zA-Z0-9_?!]*;
-VarID:   [a-z][a-zA-Z0-9_?!]*;
+ConstID: [A-Z] [a-zA-Z0-9_?!]*;
+VarID:   [a-z] [a-zA-Z0-9_?!]*;
 
 FullyQualifiedConstID: ([a-zA-Z0-9_]+ '::')* ConstID;
