@@ -1,5 +1,6 @@
-package net.gangelov.parser;
+package net.gangelov.parser.expressions;
 
+import net.gangelov.parser.XParserTest;
 import org.junit.Test;
 
 public class ParenthesizedExpressionTest {
