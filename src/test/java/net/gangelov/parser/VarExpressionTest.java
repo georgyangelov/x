@@ -5,12 +5,12 @@ import org.junit.Test;
 public class VarExpressionTest {
     @Test
     public void testConstantID() throws Exception {
-        XParserTest.testExpression("Global", "(expression (varExpression Global))");
+        XParserTest.testExpression("Global.test", "(expression (classID Global) . (methodID test))");
     }
 
     @Test
     public void testFullyQualifiedConstantID() throws Exception {
-        XParserTest.testExpression("x::lang::Global", "(expression (varExpression x::lang::Global))");
+        XParserTest.testExpression("x::lang::Global.test", "(expression (classID x::lang::Global) . (methodID test))");
     }
 
     @Test
