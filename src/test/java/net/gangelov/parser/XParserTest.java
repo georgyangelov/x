@@ -2,9 +2,6 @@ package net.gangelov.parser;
 
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
 
 import static org.junit.Assert.*;
 
@@ -21,6 +18,12 @@ public class XParserTest {
         XParser parser = createParser(expression);
 
         assertEquals(expectedParse, parser.expression().toStringTree(parser));
+    }
+
+    public static void testType(String type, String expectedParse) {
+        XParser parser = createParser(type);
+
+        assertEquals(expectedParse, parser.type().toStringTree(parser));
     }
 
 }

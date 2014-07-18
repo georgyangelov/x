@@ -13,8 +13,8 @@ interface Enumerable<a>
 end
 
 class Main
-    def main(args [String], env Hash<String, String>, & Function<String>)
-        Global.print "Hello world!"
+    def main(args [String], env {String: String})
+        Global.print "Hello #{args.first}!"
         Global.print("Hai :)")
     end
 
