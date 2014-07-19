@@ -12,7 +12,7 @@ public class Branches {
                         "varName\n" +
                         "end",
 
-                "(expression (branchExpression if (expression (constExpression true)) (expressions \\n (expression (expression (constExpression 1)) + (expression (constExpression 2))) \\n (expression (varExpression varName)) \\n) end))"
+                "(expression (branch if (expression (constant true)) (expressions \\n (expression (expression (constant 1)) + (expression (constant 2))) \\n (expression (variable varName)) \\n) end))"
         );
     }
 
@@ -25,7 +25,7 @@ public class Branches {
                     "3\n" +
                 "end",
 
-                "(expression (branchExpression if (expression (constExpression 1)) (expressions \\n (expression (constExpression 2)) \\n) else (expressions \\n (expression (constExpression 3)) \\n) end))"
+                "(expression (branch if (expression (constant 1)) (expressions \\n (expression (constant 2)) \\n) else (expressions \\n (expression (constant 3)) \\n) end))"
         );
     }
 
@@ -38,7 +38,7 @@ public class Branches {
                     "4\n" +
                 "end",
 
-                "(expression (branchExpression if (expression (constExpression 1)) (expressions \\n (expression (constExpression 2)) \\n) elsif (expression (constExpression 3)) (expressions \\n (expression (constExpression 4)) \\n) end))"
+                "(expression (branch if (expression (constant 1)) (expressions \\n (expression (constant 2)) \\n) elsif (expression (constant 3)) (expressions \\n (expression (constant 4)) \\n) end))"
         );
     }
 }

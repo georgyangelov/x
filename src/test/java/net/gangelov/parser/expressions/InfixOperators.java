@@ -11,7 +11,7 @@ public class InfixOperators {
     public void testPlusOperator() throws Exception {
         XParserTest.testExpression(
                 "a + b",
-                "(expression (expression (varExpression a)) + (expression (varExpression b)))"
+                "(expression (expression (variable a)) + (expression (variable b)))"
         );
     }
 
@@ -19,7 +19,7 @@ public class InfixOperators {
     public void testMinusOperator() throws Exception {
         XParserTest.testExpression(
                 "a - b",
-                "(expression (expression (varExpression a)) - (expression (varExpression b)))"
+                "(expression (expression (variable a)) - (expression (variable b)))"
         );
     }
 
@@ -27,7 +27,7 @@ public class InfixOperators {
     public void testMultiplyOperator() throws Exception {
         XParserTest.testExpression(
                 "a * b",
-                "(expression (expression (varExpression a)) * (expression (varExpression b)))"
+                "(expression (expression (variable a)) * (expression (variable b)))"
         );
     }
 
@@ -35,7 +35,7 @@ public class InfixOperators {
     public void testDivideOperator() throws Exception {
         XParserTest.testExpression(
                 "a / b",
-                "(expression (expression (varExpression a)) / (expression (varExpression b)))"
+                "(expression (expression (variable a)) / (expression (variable b)))"
         );
     }
 
@@ -50,18 +50,18 @@ public class InfixOperators {
                   "(expression " + // * d
                     "(expression " + // / c
                       "(expression " + // a * b
-                        "(expression (varExpression a)) " +
+                        "(expression (variable a)) " +
                         "* " +
-                        "(expression (varExpression b))" +
+                        "(expression (variable b))" +
                       ") " +
                       "/ " +
-                      "(expression (varExpression c))" +
+                      "(expression (variable c))" +
                     ") " +
                     "* " +
-                    "(expression (varExpression d))" +
+                    "(expression (variable d))" +
                   ") " +
                   "* " +
-                  "(expression (varExpression e))" +
+                  "(expression (variable e))" +
                 ")"
         );
     }
@@ -74,18 +74,18 @@ public class InfixOperators {
                   "(expression " + // + d
                     "(expression " + // - c
                       "(expression " + // a + b
-                        "(expression (varExpression a)) " +
+                        "(expression (variable a)) " +
                         "+ " +
-                        "(expression (varExpression b))" +
+                        "(expression (variable b))" +
                       ") " +
                       "- " +
-                      "(expression (varExpression c))" +
+                      "(expression (variable c))" +
                     ") " +
                     "+ " +
-                    "(expression (varExpression d))" +
+                    "(expression (variable d))" +
                   ") " +
                   "+ " +
-                  "(expression (varExpression e))" +
+                  "(expression (variable e))" +
                 ")"
         );
     }
@@ -99,19 +99,19 @@ public class InfixOperators {
                 "a + b / c - d * e",
                 "(expression " +
                   "(expression " +
-                    "(expression (varExpression a)) " +
+                    "(expression (variable a)) " +
                     "+ " +
                     "(expression " +
-                      "(expression (varExpression b)) " +
+                      "(expression (variable b)) " +
                       "/ " +
-                      "(expression (varExpression c))" +
+                      "(expression (variable c))" +
                     ")" +
                   ") " +
                   "- " +
                   "(expression " +
-                    "(expression (varExpression d)) " +
+                    "(expression (variable d)) " +
                     "* " +
-                    "(expression (varExpression e))" +
+                    "(expression (variable e))" +
                   ")" +
                 ")"
         );

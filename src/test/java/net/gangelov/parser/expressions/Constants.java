@@ -8,7 +8,7 @@ public class Constants {
     public void testIntegerConst() throws Exception {
         XParserTest.testExpression(
                 "1234",
-                "(expression (constExpression 1234))"
+                "(expression (constant 1234))"
         );
     }
 
@@ -16,7 +16,7 @@ public class Constants {
     public void testBoolConstTrue() throws Exception {
         XParserTest.testExpression(
                 "true",
-                "(expression (constExpression true))"
+                "(expression (constant true))"
         );
     }
 
@@ -24,7 +24,7 @@ public class Constants {
     public void testBoolConstFalse() throws Exception {
         XParserTest.testExpression(
                 "false",
-                "(expression (constExpression false))"
+                "(expression (constant false))"
         );
     }
 
@@ -32,7 +32,7 @@ public class Constants {
     public void testStringConstSingleQuote() throws Exception {
         XParserTest.testExpression(
                 "'test \\' string'",
-                "(expression (constExpression 'test \\' string'))"
+                "(expression (constant 'test \\' string'))"
         );
     }
 
@@ -40,7 +40,7 @@ public class Constants {
     public void testStringConstDoubleQuote() throws Exception {
         XParserTest.testExpression(
                 "\"hello \\\"\"",
-                "(expression (constExpression \"hello \\\"\"))"
+                "(expression (constant \"hello \\\"\"))"
         );
     }
 

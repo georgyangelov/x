@@ -8,7 +8,7 @@ public class Parenthesized {
     public void testParenthesizedConstExpression() throws Exception {
         XParserTest.testExpression(
                 "(true)",
-                "(expression ( (expression (constExpression true)) ))"
+                "(expression ( (expression (constant true)) ))"
         );
     }
 
@@ -16,7 +16,7 @@ public class Parenthesized {
     public void testParensPriority() throws Exception {
         XParserTest.testExpression(
                 "1 * (2 + 3)",
-                "(expression (expression (constExpression 1)) * (expression ( (expression (expression (constExpression 2)) + (expression (constExpression 3))) )))"
+                "(expression (expression (constant 1)) * (expression ( (expression (expression (constant 2)) + (expression (constant 3))) )))"
         );
     }
 }

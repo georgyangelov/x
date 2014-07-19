@@ -6,6 +6,6 @@ import org.junit.Test;
 public class Variables {
     @Test
     public void testVarID() throws Exception {
-        XParserTest.testExpression("num", "(expression (varExpression num))");
+        XParserTest.testExpression("num", "(expression (variable num))");
     }
 }

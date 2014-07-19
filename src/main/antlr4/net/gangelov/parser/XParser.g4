@@ -45,7 +45,7 @@ type
     | OpenBrace type CloseBrace                            # setAlias
     | OpenBrace type Colon type CloseBrace                 # hashAlias
     | OpenBrace typeList? FnTypeSeparator type? CloseBrace # functionAlias
-    | varExpression                                        # genericVarType
+    | variable                                             # genericVarType
     ;
 
 typeList
@@ -53,17 +53,17 @@ typeList
     ;
 
 expression
-    : OpenParen expression CloseParen                             # parentized
+    : OpenParen expression CloseParen
     // TODO: Test nested calls
-    | classID    OperatorSend methodID actualArgumentList? block? # staticCall
-    | expression OperatorSend methodID actualArgumentList? block? # instanceCall
-    | expression OperatorPrec1 expression                         # infixPrec1
-    | expression OperatorPrec2 expression                         # infixPrec2
-    |<assoc=right> expression OperatorPrec3Right expression       # infixPrec3
-    | New type                                                    # objectCreate
-    | branchExpression                                            # branch
-    | constExpression                                             # constant
-    | varExpression                                               # variable
+    | classID    OperatorSend methodID actualArgumentList? block?
+    | expression OperatorSend methodID actualArgumentList? block?
+    | expression OperatorPrec1 expression
+    | expression OperatorPrec2 expression
+    |<assoc=right> expression OperatorPrec3Right expression
+    | New type
+    | branch
+    | constant
+    | variable
     ;
 
 expressions
@@ -76,18 +76,18 @@ block
     ;
 
 blockArgumentNames
-    : varExpression (Comma varExpression)*
+    : variable (Comma variable)*
     ;
 
 // Expressions
-constExpression
+constant
     : Integer
     | String
     | True
     | False
     ;
 
-varExpression
+variable
     : VarID
     ;
 
@@ -104,7 +104,7 @@ classID
 
 // TODO: Support single-line ifs
 // '<true_branch> if <cond> else <false_branch>'
-branchExpression
+branch
     : If expression expressions (Elsif expression expressions)* (Else expressions)? End
     ;
 

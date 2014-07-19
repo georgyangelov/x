@@ -15,7 +15,7 @@ public class TypeTest {
     public void testVarType() throws Exception {
         XParserTest.testType(
                 "var_type",
-                "(type (varExpression var_type))"
+                "(type (variable var_type))"
         );
     }
 
@@ -31,7 +31,7 @@ public class TypeTest {
     public void testGenericWithVarType() throws Exception {
         XParserTest.testType(
                 "List<a>",
-                "(type List < (typeList (type (varExpression a))) >)"
+                "(type List < (typeList (type (variable a))) >)"
         );
     }
 
@@ -74,7 +74,7 @@ public class TypeTest {
     public void testFunctionAliasWithArgsAndReturnType() throws Exception {
         XParserTest.testType(
                 "{a, b -> c}",
-                "(type { (typeList (type (varExpression a)) , (type (varExpression b))) -> (type (varExpression c)) })"
+                "(type { (typeList (type (variable a)) , (type (variable b))) -> (type (variable c)) })"
         );
     }
 
@@ -82,7 +82,7 @@ public class TypeTest {
     public void testFunctionAliasWithoutReturnType() throws Exception {
         XParserTest.testType(
                 "{a, b ->}",
-                "(type { (typeList (type (varExpression a)) , (type (varExpression b))) -> })"
+                "(type { (typeList (type (variable a)) , (type (variable b))) -> })"
         );
     }
 
@@ -90,7 +90,7 @@ public class TypeTest {
     public void testFunctionAliasWithoutArgs() throws Exception {
         XParserTest.testType(
                 "{-> c}",
-                "(type { -> (type (varExpression c)) })"
+                "(type { -> (type (variable c)) })"
         );
     }
 
