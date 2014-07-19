@@ -54,7 +54,6 @@ typeList
 
 expression
     : OpenParen expression CloseParen
-    // TODO: Test nested calls
     | classID    OperatorSend methodID actualArgumentList? block?
     |<assoc=right> expression OperatorSend methodID actualArgumentList? block?
     | expression OperatorPrec1 expression
