@@ -3,7 +3,7 @@ package net.gangelov.parser.expressions;
 import net.gangelov.parser.XParserTest;
 import org.junit.Test;
 
-public class BranchExpressionTest {
+public class Branches {
     @Test
     public void testBasicIf() throws Exception {
         XParserTest.testExpression(
@@ -12,7 +12,7 @@ public class BranchExpressionTest {
                         "varName\n" +
                         "end",
 
-                "(expression (branchExpression if (expression (constExpression true)) (expressions \\n (expression (expression (constExpression 1)) (infixOperatorPrec2 +) (expression (constExpression 2))) \\n (expression (varExpression varName)) \\n) end))"
+                "(expression (branchExpression if (expression (constExpression true)) (expressions \\n (expression (expression (constExpression 1)) + (expression (constExpression 2))) \\n (expression (varExpression varName)) \\n) end))"
         );
     }
 

@@ -3,7 +3,7 @@ package net.gangelov.parser.expressions;
 import net.gangelov.parser.XParserTest;
 import org.junit.Test;
 
-public class MethodCallExpressionTest {
+public class MethodCalls {
     @Test
     public void testSendOnVariableIDWithoutArguments() throws Exception {
         XParserTest.testExpression(
@@ -40,7 +40,7 @@ public class MethodCallExpressionTest {
     public void testSendOnInfixExpressionWithoutArguments() throws Exception {
         XParserTest.testExpression(
                 "(1 + 2).abs",
-                "(expression (expression ( (expression (expression (constExpression 1)) (infixOperatorPrec2 +) (expression (constExpression 2))) )) . (methodID abs))"
+                "(expression (expression ( (expression (expression (constExpression 1)) + (expression (constExpression 2))) )) . (methodID abs))"
         );
     }
 
@@ -48,7 +48,7 @@ public class MethodCallExpressionTest {
     public void testSendPrecedence() throws Exception {
         XParserTest.testExpression(
                 "1 + 2.abs",
-                "(expression (expression (constExpression 1)) (infixOperatorPrec2 +) (expression (expression (constExpression 2)) . (methodID abs)))"
+                "(expression (expression (constExpression 1)) + (expression (expression (constExpression 2)) . (methodID abs)))"
         );
     }
 
@@ -56,7 +56,7 @@ public class MethodCallExpressionTest {
     public void testSendPrecedenceWithArguments() throws Exception {
         XParserTest.testExpression(
                 "1 + 2.between? 3, 4",
-                "(expression (expression (constExpression 1)) (infixOperatorPrec2 +) (expression (expression (constExpression 2)) . (methodID between?) (actualArgumentList (expression (constExpression 3)) , (expression (constExpression 4)))))"
+                "(expression (expression (constExpression 1)) + (expression (expression (constExpression 2)) . (methodID between?) (actualArgumentList (expression (constExpression 3)) , (expression (constExpression 4)))))"
         );
     }
 }

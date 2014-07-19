@@ -3,7 +3,7 @@ package net.gangelov.parser.expressions;
 import net.gangelov.parser.XParserTest;
 import org.junit.Test;
 
-public class ParenthesizedExpressionTest {
+public class Parenthesized {
     @Test
     public void testParenthesizedConstExpression() throws Exception {
         XParserTest.testExpression(
@@ -16,7 +16,7 @@ public class ParenthesizedExpressionTest {
     public void testParensPriority() throws Exception {
         XParserTest.testExpression(
                 "1 * (2 + 3)",
-                "(expression (expression (constExpression 1)) (infixOperatorPrec1 *) (expression ( (expression (expression (constExpression 2)) (infixOperatorPrec2 +) (expression (constExpression 3))) )))"
+                "(expression (expression (constExpression 1)) * (expression ( (expression (expression (constExpression 2)) + (expression (constExpression 3))) )))"
         );
     }
 }

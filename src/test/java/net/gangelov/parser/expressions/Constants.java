@@ -3,7 +3,7 @@ package net.gangelov.parser.expressions;
 import net.gangelov.parser.XParserTest;
 import org.junit.Test;
 
-public class ConstExpressionTest {
+public class Constants {
     @Test
     public void testIntegerConst() throws Exception {
         XParserTest.testExpression(
@@ -42,5 +42,15 @@ public class ConstExpressionTest {
                 "\"hello \\\"\"",
                 "(expression (constExpression \"hello \\\"\"))"
         );
+    }
+
+    @Test
+    public void testClassID() throws Exception {
+        XParserTest.testExpression("Global.test", "(expression (classID Global) . (methodID test))");
+    }
+
+    @Test
+    public void testFullyQualifiedClassID() throws Exception {
+        XParserTest.testExpression("x::lang::Global.test", "(expression (classID x::lang::Global) . (methodID test))");
     }
 }

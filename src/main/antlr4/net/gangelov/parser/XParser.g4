@@ -54,11 +54,12 @@ typeList
 
 expression
     : OpenParen expression CloseParen                             # parentized
+    // TODO: Test nested calls
     | classID    OperatorSend methodID actualArgumentList? block? # staticCall
     | expression OperatorSend methodID actualArgumentList? block? # instanceCall
-    | expression infixOperatorPrec1 expression                    # infixPrec1
-    | expression infixOperatorPrec2 expression                    # infixPrec2
-    | expression infixOperatorPrec3 expression                    # infixPrec2
+    | expression OperatorPrec1 expression                         # infixPrec1
+    | expression OperatorPrec2 expression                         # infixPrec2
+    |<assoc=right> expression OperatorPrec3Right expression       # infixPrec3
     | New type                                                    # objectCreate
     | branchExpression                                            # branch
     | constExpression                                             # constant
@@ -76,22 +77,6 @@ block
 
 blockArgumentNames
     : varExpression (Comma varExpression)*
-    ;
-
-// Operators
-// TODO: Support more operators
-infixOperatorPrec1
-    : OperatorMult
-    | OperatorDiv
-    ;
-
-infixOperatorPrec2
-    : OperatorPlus
-    | OperatorMinus
-    ;
-
-infixOperatorPrec3
-    : OperatorAssign
     ;
 
 // Expressions

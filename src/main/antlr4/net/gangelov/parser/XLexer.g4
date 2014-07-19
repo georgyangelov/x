@@ -45,11 +45,16 @@ False: 'false';
 
 // Operators
 OperatorSend:   '.';
-OperatorRef:    '&';
+OperatorRef:    '&'; // TODO: Use this
+
+OperatorPrec3Right: OperatorAssign;
 OperatorAssign: '=';
 
+OperatorPrec2: OperatorPlus | OperatorMinus;
 OperatorPlus:  '+';
 OperatorMinus: '-';
+
+OperatorPrec1: OperatorMult | OperatorDiv;
 OperatorMult:  '*';
 OperatorDiv:   '/';
 
