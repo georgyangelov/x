@@ -56,7 +56,7 @@ expression
     : OpenParen expression CloseParen
     // TODO: Test nested calls
     | classID    OperatorSend methodID actualArgumentList? block?
-    | expression OperatorSend methodID actualArgumentList? block?
+    |<assoc=right> expression OperatorSend methodID actualArgumentList? block?
     | expression OperatorPrec1 expression
     | expression OperatorPrec2 expression
     |<assoc=right> expression OperatorPrec3Right expression
@@ -109,6 +109,6 @@ branch
     ;
 
 actualArgumentList
-    : expression (Comma EndExpr? expression)*
-    | OpenParen expression (Comma EndExpr? expression)* CloseParen
+    : OpenParen expression (Comma EndExpr? expression)* CloseParen
+    | expression (Comma EndExpr? expression)*
     ;
