@@ -26,4 +26,10 @@ public class XParserTest {
         assertEquals(expectedParse, parser.type().toStringTree(parser));
     }
 
+    public static void testClass(String klass, String expectedParse) {
+        XParser parser = createParser(klass);
+
+        assertEquals(expectedParse, parser.classDef().toStringTree(parser));
+    }
+
 }
