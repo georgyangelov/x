@@ -37,6 +37,14 @@ public class MethodCalls {
     }
 
     @Test
+    public void testChain() throws Exception {
+        XParserTest.testExpression(
+                "DateTime.now.add_minutes(20).add_hours(1)",
+                "(expression (expression (expression (classID DateTime) . (methodID now)) . (methodID add_minutes) (actualArgumentList ( (expression (constant 20)) ))) . (methodID add_hours) (actualArgumentList ( (expression (constant 1)) )))"
+        );
+    }
+
+    @Test
     public void testOnInfixExpressionWithoutArguments() throws Exception {
         XParserTest.testExpression(
                 "(1 + 2).abs",

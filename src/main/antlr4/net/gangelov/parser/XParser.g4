@@ -23,7 +23,7 @@ interfaceDef
 
 // TODO: Support specifying block type
 methodDef
-    : Def methodID (OpenParen formalArgumentList CloseParen)? type? (Colon|EndExpr) code End
+    : Def methodID (OpenParen formalArgumentList CloseParen)? type? (Colon|EndExpr) code? End
     ;
 
 methodDecl
@@ -59,7 +59,7 @@ expression
     | expression OperatorPrec1 expression
     | expression OperatorPrec2 expression
     |<assoc=right> expression OperatorPrec3Right expression
-    | New type
+    | type OperatorSend New
     | branch
     | constant
     | variable

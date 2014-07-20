@@ -32,4 +32,10 @@ public class XParserTest {
         assertEquals(expectedParse, parser.classDef().toStringTree(parser));
     }
 
+    public static void testMethodDefinition(String method, String expectedParse) {
+        XParser parser = createParser(method);
+
+        assertEquals(expectedParse, parser.methodDef().toStringTree(parser));
+    }
+
 }
