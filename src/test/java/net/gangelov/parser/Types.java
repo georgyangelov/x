@@ -2,7 +2,7 @@ package net.gangelov.parser;
 
 import org.junit.Test;
 
-public class TypeTest {
+public class Types {
     @Test
     public void testClassIDType() throws Exception {
         XParserTest.testType(
